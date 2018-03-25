@@ -1,0 +1,102 @@
+My approach----->
+as data has very high dimension and number of samples is low
+---> I regularized the data
+---> as first filtering feacher approach I used Chai2 test and took 1500 Gene expression that scored high in this test
+---> then applied PCA ( Principal componet analysis ), and reduced that data dimension to very low.( to 32-180 feachers)
+---> Then feed them into Neural network with 1 hidden network.
+---> applied L2 regularization to stop overfitting and have good performance out of samples
+
+Datasets:
+
+
+Braintumer dataset( Most hard one)
+
+We used the dataset  from the original research done by Pomeroy et al., consisting of 40 samples from 5 diagnostic classes (medulloblastomas, malignant gliomas, atypicalteratoid/rhabdoid tumors, primitive neuroectodermal tumors and normal cerebella).
+ medulloblastoma (medulloblastoma): 10 examples 
+- malignant glioma (glioma): 10 examples 
+- Rhabdoid tumor (RhabdoidTu): 10 examples 
+- normal cerebellum (Normal): 4 examples 
+- primitive neuroectodermal tumor (PNET): 6 examples 
+Number of genes: 7129
+Number of samples: 40
+
+Lung Cancer
+
+Dataset consistes fo  four different lung tumors (adenocarcinomas, small-cell lung carcinomas, squamous cell carcinomas and carcinoids) and normal lung tissue on the basis of DNA expression signatures.
+
+-adenocarcinoma (AD): 139 examples 
+- normal lung (NL): 17 examples 
+- small cell lung cancer (SMCL): 6 examples 
+- squamous cell carcinoma (SQ): 21 examples 
+- pulmonary carcinoid (COID): 20 examples 
+
+Number of genes: 12600
+Number of samples: 203
+
+Prostate Cancer:
+Dataset consistes of Gene expression of tissues taken from normal prostate and samples of prostate tumors.
+
+ normal tissue (normal): 50 examples 
+ prostate tumor (tumor): 52 examples 
+
+Number of genes: 12533
+Number of samples: 102
+
+
+Ovary Cancer:
+
+
+Dataset consistes of Gene expression of tissues taken from around normal ovary and samples of ovary cancer tissue.
+
+normal tissue (normal): 125 examples 
+ prostate tumor (tumor): 128 examples 
+ 
+Number of genes: 15154
+Number of samples: 253
+
+
+Result:
+
+I ran 3 different model,
+that one is my main approach. 
+And other 2 without PCA( l1 regularization and l2 regularization)
+
+dataset 	ovary 		lung		braintumer	prostate
+PCA 		100%		95.62%		80%		94.16%	
+l1		98%		94.34		82.5%		93.33%
+l2		99.59%		93.4		90%		92.5%
+
+( low performance in braintumer, cause it have so much data to do principal componet analysis. Because with only 40 sample and 5 classes , not good to reduce much data such case  :(  )
+
+This may show no big difference in performance, but Model complexity of PCA is several time lower that l1 nad 2.
+for example 
+
+total trainable parameter of ovaryset is : 9,006,002( with out PCA, took around 1 min training)
+
+in case of PCA # of parameter:  209,078( took less than 5 sec in traning)
+
+
+
+Other approachs:
+[ paper :---> FUsing deep learning to enhance cancer diagnosis and classification
+	Rasool Fakoor rasool.fakoor@mavs.uta.edu
+	Faisal Ladhak faisal.ladhak@mavs.uta.edu
+	Azade Nazi Azade.nazi@mavs.uta.edu
+	Manfred Huber huber@cse.uta.edu]
+They proposed only pca as feacher extractor . And Feed that in to four diiffernt type of classifier.(Sparse Autoencoder,Stacked Autoencoder,Stacked Autoencoderwith Fine Tunning ,  Softmax / SVM (with Gaussian kernel))
+they and me have 2 simmiler dataset . 
+( prostate and overy) performance is same for(  softmax SVM). For other models my model performs better.
+
+
+
+
+[paper ---> Discriminative Gene Selection Employing Linear
+Regression Model
+Abid Hasan α, Shaikh Jeeshan Kabeer σ, Md. Abdul Mottalib ρ & Kamrul Hasan]
+they applied no PCA. But they used different scoring function to filter feachers( like Chai2,ReliefF,GainRatio Value) and aslo proposed a scoring model.
+
+performace:[ here best means best one among different scoring mechanism ]
+for prostate : svm(best) 91, 	adboost(best)75, 	randomforest(best)83
+lungs :		svm(best)97.98 	adboost(best) 97.98 	randomforest(best) 97.98
+Just to compare( their lungs and my lung dataset is same, but origianl dataset have 5 classes( described above). they mergeded 4 different lung cance as one , just cancer. where as with 5 classes by performace is 95.62(near them) )
+

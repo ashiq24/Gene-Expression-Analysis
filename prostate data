@@ -1,0 +1,45 @@
+Testing ------------>
+Using TensorFlow backend.
+1500
+2017-11-12 22:39:58.062093: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-12 22:39:58.062136: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-12 22:39:58.062157: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+('Test loss:', 0.15534946322441101)
+('Test accuracy:', 1.0)
+Testing ------------>
+1500
+('Test loss:', 0.43018683791160583)
+('Test accuracy:', 0.83333331346511841)
+Testing ------------>
+1500
+('Test loss:', 0.20796270668506622)
+('Test accuracy:', 0.91666668653488159)
+Testing ------------>
+1500
+('Test loss:', 0.52916759252548218)
+('Test accuracy:', 0.83333331346511841)
+Testing ------------>
+1500
+('Test loss:', 0.09323699027299881)
+('Test accuracy:', 1.0)
+Testing ------------>
+1500
+('Test loss:', 0.24451883137226105)
+('Test accuracy:', 0.91666668653488159)
+Testing ------------>
+1500
+('Test loss:', 0.33627337217330933)
+('Test accuracy:', 0.91666668653488159)
+Testing ------------>
+1500
+('Test loss:', 0.1407819390296936)
+('Test accuracy:', 1.0)
+Testing ------------>
+1500
+('Test loss:', 0.14074309170246124)
+('Test accuracy:', 1.0)
+Testing ------------>
+1500
+('Test loss:', 0.21035559475421906)
+('Test accuracy:', 1.0)
+
